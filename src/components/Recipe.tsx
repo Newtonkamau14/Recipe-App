@@ -1,20 +1,9 @@
-import { Link } from "react-router-dom";
 import group from "../assets/group.svg";
 import schedule from "../assets/schedule.svg";
-import SearchBar from "./SearchBar";
 
 function Recipe() {
   return (
-    <div className="flex justify-center gap-4">
-      <div className="border border-gray-300 rounded-md shadow p-6">
-        <SearchBar />
-
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-          
-      </div>
+    <div>
       <div className="border border-gray-300 rounded-md shadow p-6">
         <h1 className="font-medium text-3xl">Chicken Stir Fry</h1>
         <h2 className="text-gray-500">A quick and easy Asian-inspired dish</h2>
@@ -72,18 +61,6 @@ function Recipe() {
           </ol>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Card() {
-  return (
-    <div className="border rounded-md my-4">
-      <Link to="#">
-        <img src="https://placehold.co/200x100" alt="" />
-        <h1 className="font-normal p-2">Spaghetti Cabonara</h1>
-        <p className="text-gray-400 p-2">A classic italian pasta dish</p>
-      </Link>
     </div>
   );
 }
