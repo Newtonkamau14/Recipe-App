@@ -1,12 +1,26 @@
 import { Link } from "react-router-dom";
 
-function Card() {
+export interface IRecipePreview {
+  poster: {
+    asset: {
+      url: string | undefined;
+    };
+  };
+  title: string;
+  description: string;
+};
+
+type CardProps = {
+  recipe: IRecipePreview;
+};
+
+function Card({ recipe }: CardProps) {
   return (
     <div className="border rounded-md my-4">
       <Link to="#">
-        <img src="https://placehold.co/200x100" alt="" />
-        <h1 className="font-normal p-2">Spaghetti Cabonara</h1>
-        <p className="text-gray-400 p-2">A classic italian pasta dish</p>
+        <img src={recipe.poster.asset.url} alt="food image" />
+        <h1 className="font-normal p-2">{recipe.title}</h1>
+        <p className="text-gray-400 p-2">{recipe.description}</p>
       </Link>
     </div>
   );
