@@ -41,8 +41,10 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarHeader className="font-light text-start flex flex-row items-center py-6 text-xl">
-        <ChefHat/>
-        Recipe App
+        <Link href="/" className="flex gap-1">
+          <ChefHat />
+          Recipe App
+        </Link>
       </SidebarHeader>
       <Separator />
 
