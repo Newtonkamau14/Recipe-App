@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Home, Search, BookOpen, ChefHat, Heart } from "lucide-react";
+import { Home, Search, BookOpen, ChefHat, Heart, Plus } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -17,7 +17,7 @@ import { Separator } from "@/components/ui/separator";
 const items = [
   {
     title: "Home",
-    url: "#",
+    url: "/",
     icon: Home,
   },
   {
@@ -32,9 +32,14 @@ const items = [
   },
   {
     title: "Favourites",
-    url: "#",
+    url: "/favourites",
     icon: Heart,
   },
+  {
+    title: "Add Recipe",
+    url: "recipes/add",
+    icon: Plus
+  }
 ];
 
 export function AppSidebar() {
