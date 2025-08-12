@@ -1,18 +1,27 @@
-import Link from "next/link"
-import { UserPlus } from "lucide-react";
-import { Button } from "../button";
+import { logoutAction } from "@/data/actions/auth-action";
 import { SidebarTrigger } from "../sidebar";
+import { SubmitButton } from "./submit-button";
+import { getUserMeLoader } from "@/data/services/get-user-me-loader";
 
-export function Navbar() {
+export async function Navbar() {
+  const user = await getUserMeLoader();
+
   return (
     <header className="sticky top-0 flex justify-between items-center bg-gray-50 w-full h-14 border-b">
       <SidebarTrigger className="cursor-pointer" />
-      <Button className="mr-3">
-        <Link href="/login" className="flex items-center gap-2 text-lg">
-          <UserPlus />
-          Login
-        </Link>
-      </Button>
+
+      {user && (
+        <div className="flex items-center gap-3 mr-3">
+          <p className="font-semibold">{user.data.username}</p>
+          <form action={logoutAction}>
+            <SubmitButton
+              className="w-fit"
+              text="Logout"
+              loadingText="Loading"
+            />
+          </form>
+        </div>
+      )}
     </header>
   );
 }

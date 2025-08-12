@@ -1,3 +1,5 @@
+"use client";
+import { useActionState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,8 +12,21 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signUpUserAction } from "@/data/actions/auth-action";
+import { ZodErrors } from "@/components/ui/custom/zod-errors";
+import { StrapiErrors } from "@/components/ui/custom/strapi-errors";
+import { SubmitButton } from "@/components/ui/custom/submit-button";
+
+const INITIAL_STATE = {
+  data: null,
+  zodErrors: null,
+};
 
 export default function Signup() {
+  const [formState, formAction] = useActionState(
+    signUpUserAction,
+    INITIAL_STATE
+  );
+
   return (
     <main className="min-h-screen flex justify-center items-center">
       <Card className="w-full h-3/6 m-2 md:max-w-xl">
@@ -28,7 +43,7 @@ export default function Signup() {
           </Button>
         </CardHeader>
         <CardContent>
-          <form action={signUpUserAction}>
+          <form action={formAction}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="username">Username</Label>
@@ -37,8 +52,8 @@ export default function Signup() {
                   name="username"
                   type="text"
                   placeholder="johndoe"
-                  required
                 />
+                <ZodErrors error={formState?.zodErrors?.fieldErrors.username} />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -47,24 +62,29 @@ export default function Signup() {
                   type="email"
                   name="email"
                   placeholder="m@example.com"
-                  required
                 />
+                <ZodErrors error={formState?.zodErrors?.fieldErrors.email} />
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                  <a
+                  <Link
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
-                <Input id="password" type="password" name="password" required />
+                <Input id="password" type="password" name="password" />
+                <ZodErrors error={formState?.zodErrors?.fieldErrors.password} />
               </div>
-              <Button type="submit" className="w-full">
-                Sign Up
-              </Button>
+              <SubmitButton
+                className="w-full"
+                text="Sign Up"
+                loadingText="Loading"
+              />
+
+              <StrapiErrors error={formState?.strapiErrors} />
             </div>
           </form>
         </CardContent>

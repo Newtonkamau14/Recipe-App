@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Heart } from "lucide-react";
+
+
+export const metadata: Metadata = {
+  title: "Favourites",
+  description: "Discover and save your favorite recipes",
+};
+
 
 export default function Favourites() {
   return (

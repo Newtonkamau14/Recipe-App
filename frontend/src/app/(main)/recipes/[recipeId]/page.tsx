@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ChefHat, Clock, Flame, Users } from "lucide-react";
-
 import {
   Carousel,
   CarouselContent,

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,7 +11,13 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@radix-ui/react-select";
+} from "@/components/ui/select";
+
+
+export const metadata: Metadata = {
+  title: "Add Recipe",
+  description: "Discover and save your favorite recipes",
+};
 
 export default function RecipeForm() {
   return (
@@ -82,10 +89,7 @@ export default function RecipeForm() {
                 <Label htmlFor="instructions">Instructions</Label>
                 <Textarea placeholder="Enter the recipe instructions here." />
               </div>
-
-
             </div>
-
             <div className="flex justify-between">
               <Button variant="outline" className="text-lg">
                 Cancel
