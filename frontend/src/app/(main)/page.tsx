@@ -1,5 +1,5 @@
-import { RecipeGrid } from "@/components/ui/custom/recipe-grid";
-import { SearchForm } from "@/components/ui/custom/search-form";
+import { RecipeGrid } from "@/components/custom/recipe-grid";
+import { SearchForm } from "@/components/custom/search-form";
 
 export default function Home() {
   return (

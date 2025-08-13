@@ -12,9 +12,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { signUpUserAction } from "@/data/actions/auth-action";
-import { ZodErrors } from "@/components/ui/custom/zod-errors";
-import { StrapiErrors } from "@/components/ui/custom/strapi-errors";
-import { SubmitButton } from "@/components/ui/custom/submit-button";
+import { ZodErrors } from "@/components/custom/zod-errors";
+import { StrapiErrors } from "@/components/custom/strapi-errors";
+import { SubmitButton } from "@/components/custom/submit-button";
 
 const INITIAL_STATE = {
   data: null,

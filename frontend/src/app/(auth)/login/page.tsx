@@ -12,10 +12,10 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ZodErrors } from "@/components/ui/custom/zod-errors";
+import { ZodErrors } from "@/components/custom/zod-errors";
 import { loginUserAction } from "@/data/actions/auth-action";
-import { SubmitButton } from "@/components/ui/custom/submit-button";
-import { StrapiErrors } from "@/components/ui/custom/strapi-errors";
+import { SubmitButton } from "@/components/custom/submit-button";
+import { StrapiErrors } from "@/components/custom/strapi-errors";
 
 const INITIAL_STATE = {
   data: null,
